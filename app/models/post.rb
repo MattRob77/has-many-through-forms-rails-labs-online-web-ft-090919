@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
     attributes.values.each do |attribute|
       if attribute["name"].present? 
       category = Category.find_or_create_by(attribute)
-      self.post_categories.build(category: category)
+      self.categories << category 
     end
   end
 end
